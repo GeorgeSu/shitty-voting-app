@@ -7,7 +7,7 @@ var express =	require("express"), // import Express package
     
 // Connect Mongoose Server to DB; use new syntax (mongoose.connect("mongodb://localhost:27017/app_name", { useNewUrlParser: true });) if Mongo Version 5.2.1 or higher
 mongoose.connect(process.env.DATABASEURL); // connects mongoose to database server; replace database_name with app’s database; if database_name doesn’t exist, creates the database
-// mongoose.connect("mongodb://<dbuser>:<dbpassword>@ds219672.mlab.com:19672/shitty-voting-app");
+
 
 // BodyParser + Method-Override Boilerplate
 app.use(bodyParser.urlencoded({extended: true})); // Boilerplate for using BodyParser
