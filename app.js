@@ -4,9 +4,11 @@ var express =	require("express"), // import Express package
     request =		require("request"), // Request package for making HTTP requests for API calls
     methodOverride = require("method-override"), // Method-Override package for PUT/DELETE route method over-rides
     mongoose =	require("mongoose"); // Mongoose package for interacting with MongoDB
-    
+
+
+var url = process.env.DATABASEURL || "mongodb://localhost/elections";
 // Connect Mongoose Server to DB; use new syntax (mongoose.connect("mongodb://localhost:27017/app_name", { useNewUrlParser: true });) if Mongo Version 5.2.1 or higher
-mongoose.connect(process.env.DATABASEURL); // connects mongoose to database server; replace database_name with app’s database; if database_name doesn’t exist, creates the database
+mongoose.connect(url); // connects mongoose to database server; replace database_name with app’s database; if database_name doesn’t exist, creates the database
 
 
 // BodyParser + Method-Override Boilerplate
