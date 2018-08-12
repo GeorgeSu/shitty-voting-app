@@ -128,6 +128,4 @@ app.get("/elections/:id/results", function(req, res) {
     }
 )})
 
-
-
 app.listen(process.env.PORT, process.env.IP); // runs app on server with selected port and IP
