@@ -1,0 +1,37 @@
+<h3>Current Nominations</h3>
+<% election.nominations.forEach(function(nomination) { %>
+    <li>
+        <%=nomination.name%>
+    </li>
+<% }) %>
+
+<form action="/elections/<%=election._id%>/nomination" method="POST">
+    <input type="text" name="nomination[name]">
+    <button>Add Nomination</button>
+</form>
+
+<hr>
+
+<h3>Ballots Cast:</h3>
+<% election.ballots.forEach(function(ballot) { %>
+    <li>
+        <%=ballot.voter%> [<a href="">X</a>]
+    </li>
+<% }) %>
+
+<hr>
+
+<h4> Ballot </h4>
+<form action="/elections/<%=election._id%>/ballot" method="POST">
+    <% election.nominations.forEach(function(nomination) { %>
+        <li>
+            <%=nomination.name%> : <input required type="number" name=<%=nomination._id%> min="0" max=<%=election.numEntries-1%>>
+        </li>
+    <% }) %>
+    <input type="text" placeholder="Your Name" name="voter" required>
+    <button>Cast Ballot</button>
+</form>
+
+<form action="/elections/<%=election._id%>/results" method="GET">
+    <button>Generate Results</button>
+</form>
